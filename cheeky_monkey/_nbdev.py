@@ -2,11 +2,17 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"derive_statuscount_percase": "00_core.ipynb",
-         "example_exports_func": "00_core.ipynb",
-         "imgs_save": "00_core.ipynb"}
+index = {"from_dob_to_age": "00_core.ipynb",
+         "derive_statuscount_percase": "01_core.baseline.ipynb",
+         "imgs_save": "01_core.baseline.ipynb",
+         "ORIGIN_MAPPINGS": "01_core.baseline.ipynb",
+         "get_fte_days_2018": "01_core.baseline.ipynb",
+         "example_exports_func": "01_core.baseline.ipynb",
+         "get_statuses": "01_core.baseline.ipynb",
+         "get_processed_case_data": "01_core.baseline.ipynb"}
 
-modules = ["core.py"]
+modules = ["core.py",
+           "core/baseline.py"]
 
 doc_url = "https://ezrider.github.io/cheeky_monkey/"
 

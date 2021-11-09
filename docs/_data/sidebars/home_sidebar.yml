@@ -12,6 +12,12 @@ entries:
     - output: web,pdf
       title: cheeky_monkey
       url: core.html
+    - output: web,pdf
+      title: Baseline Analysis
+      url: core.baseline.html
+    - output: web,pdf
+      title: Cost Analysis Baseline - 2018 Over 80 Cases by Case Origin
+      url: 10. Cost Analysis Baseline - 2018 Over 80 Cases by Case Origin.html
     output: web
     title: cheeky_monkey
   output: web
