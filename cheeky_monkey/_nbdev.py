@@ -9,10 +9,12 @@ index = {"from_dob_to_age": "00_core.ipynb",
          "get_fte_days_2018": "01_core.baseline.ipynb",
          "example_exports_func": "01_core.baseline.ipynb",
          "get_statuses": "01_core.baseline.ipynb",
-         "get_processed_case_data": "01_core.baseline.ipynb"}
+         "get_processed_case_data": "01_core.baseline.ipynb",
+         "data_file_path": "10. Cost Analysis Baseline - 2018 Over 80 Cases by Case Origin.ipynb"}
 
 modules = ["core.py",
-           "core/baseline.py"]
+           "core/baseline.py",
+           "None.py"]
 
 doc_url = "https://ezrider.github.io/cheeky_monkey/"
 
