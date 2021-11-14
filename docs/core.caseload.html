@@ -26,12 +26,28 @@ nb_path: "02_core.caseload.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>C:\Users\mbeaulieu\source\repos\cheeky-monkey\cheeky_monkey\core\caseload.py:16: FutureWarning: pandas.util.testing is deprecated. Use the functions in the public API at pandas.testing instead.
+  from pandas.util.testing import assert_frame_equal
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     {% endraw %}
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="This-code-generates-data-for-caseload-analyis">This code generates data for caseload analyis<a class="anchor-link" href="#This-code-generates-data-for-caseload-analyis"> </a></h2><blockquote><p>When a case spans many months, data is created for each month of it's lifespan in order to perform a variety of analysis.  In this particular scenario, we want assess the impact by month and calulate the effort required.</p>
+<h2 id="MODULE---CASELOAD">MODULE - CASELOAD<a class="anchor-link" href="#MODULE---CASELOAD"> </a></h2><blockquote><p>This code generates data for caseload analyis</p>
+<p>When a case spans many months, data is created for each month of it's lifespan in order to perform a variety of analysis.  In this particular scenario, we want assess the impact by month and calulate the effort required.</p>
 </blockquote>
 
 </div>
@@ -55,7 +71,7 @@ nb_path: "02_core.caseload.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_generated_caseload_data_bymonth" class="doc_header"><code>get_generated_caseload_data_bymonth</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L31" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_generated_caseload_data_bymonth</code>(<strong><code>f_path</code></strong>)</p>
+<h4 id="get_generated_caseload_data_bymonth" class="doc_header"><code>get_generated_caseload_data_bymonth</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L36" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_generated_caseload_data_bymonth</code>(<strong><code>f_path</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -75,27 +91,39 @@ nb_path: "02_core.caseload.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="GET-PROCESSED-CASE-DATA----BOOKBARK">GET PROCESSED CASE DATA -- BOOKBARK<a class="anchor-link" href="#GET-PROCESSED-CASE-DATA----BOOKBARK"> </a></h4>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="get_processed_case_data" class="doc_header"><code>get_processed_case_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L50" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_processed_case_data</code>(<strong><code>f_path</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered celltag_remove-input">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_processed_case_data</span><span class="p">(</span><span class="n">f_path</span><span class="p">):</span>
-    <span class="n">file_path</span> <span class="o">=</span> <span class="n">f_path</span> <span class="o">+</span> <span class="s1">&#39;cases_processed.csv&#39;</span>
-    <span class="n">cases_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span><span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;BIRTHDATE&#39;</span><span class="p">,</span><span class="s1">&#39;CASE_OPENED_DT&#39;</span><span class="p">,</span><span class="s1">&#39;PREV_CASE_END_DT&#39;</span><span class="p">,</span><span class="s1">&#39;LAST_STATUS_DATE&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;DRIVERS_LICENSE_NO&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
-    <span class="n">cases_df</span> <span class="o">=</span> <span class="n">cases_df</span><span class="p">[(</span><span class="n">cases_df</span><span class="p">[</span><span class="s1">&#39;Ignore Case&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">]</span>
-    <span class="n">cases_df</span><span class="p">[</span><span class="s1">&#39;Age Category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cases_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;Over 80 &#39;</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">age_bucket</span> <span class="o">&gt;=</span> <span class="mi">80</span> <span class="k">else</span> <span class="s1">&#39;Under 80&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">cases_df</span><span class="p">[</span><span class="s1">&#39;Type Origin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cases_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;CASE_CD&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;ORIGIN_CD&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">cases_df</span><span class="p">[</span><span class="s1">&#39;Type &amp; Origin Desc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cases_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;CASE_DSC&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39; &amp; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;ORIGIN_DSC&#39;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">cases_df</span><span class="p">[</span><span class="s1">&#39;Case Length Over 30 Days&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cases_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;case_length_days&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">30</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">cases_df</span><span class="p">[</span><span class="s1">&#39;Case Length Over 60 Days&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cases_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;case_length_days&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">60</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
 
 </div>
     {% endraw %}
@@ -107,9 +135,8 @@ nb_path: "02_core.caseload.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_file_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\mbeaulieu\rsi_project_book\Data</span><span class="se">\\</span><span class="s1">&#39;</span>
-<span class="n">generated_data_file_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\mbeaulieu\rsi_project_book\Data</span><span class="se">\\</span><span class="s1">&#39;</span>
-<span class="n">cases_df</span> <span class="o">=</span> <span class="n">get_processed_case_data</span><span class="p">(</span><span class="n">data_file_path</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#generated_data_file_path = r&#39;C:\Users\mbeaulieu\rsi_project_book\Data\\&#39;</span>
+<span class="c1">#cases_df = get_processed_case_data(data_file_path)</span>
 
 <span class="c1"># cases_df = pd.read_csv(r&#39;..\cases_processed.csv&#39;,parse_dates=[&#39;BIRTHDATE&#39;,&#39;CASE_OPENED_DT&#39;,&#39;PREV_CASE_END_DT&#39;,&#39;LAST_STATUS_DATE&#39;], dtype={&#39;DRIVERS_LICENSE_NO&#39;: str})</span>
 <span class="c1"># cases_df = cases_df[cases_df[&#39;Ignore Case&#39;] == 0]</span>
@@ -164,29 +191,6 @@ nb_path: "02_core.caseload.ipynb"
 <span class="c1">#         return &#39;Closed&#39;</span>
 
     
-<span class="k">def</span> <span class="nf">f_caseload_isopen</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
-    
-    <span class="n">year_span_diff</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;Year Span&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;LAST_STATUS_DATE&#39;</span><span class="p">]</span> <span class="c1"># if same month then</span>
-    <span class="n">year_span_diff</span> <span class="o">=</span> <span class="n">year_span_diff</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>    
-
-    <span class="n">status_diff</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;LAST_STATUS_DATE&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;CASE_OPENED_DT&#39;</span><span class="p">]</span>
-    <span class="n">status_diff</span> <span class="o">=</span> <span class="n">status_diff</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;GENERAL_STATUS&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Open&#39;</span><span class="p">:</span>
-        <span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;Open&#39;</span>
-        <span class="n">open_count</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="n">closed_count</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">year_span_diff</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;Open&#39;</span>
-            <span class="n">open_count</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="n">closed_count</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;Closed&#39;</span>
-            <span class="n">open_count</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="n">closed_count</span> <span class="o">=</span> <span class="mi">1</span>
-        
-    <span class="k">return</span> <span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">open_count</span><span class="p">,</span> <span class="n">closed_count</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -196,61 +200,61 @@ nb_path: "02_core.caseload.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="F-CASELOAD-ISOPEN">F CASELOAD ISOPEN<a class="anchor-link" href="#F-CASELOAD-ISOPEN"> </a></h3>
+</div>
+</div>
+</div>
     {% raw %}
     
-<div class="cell border-box-sizing code_cell rendered celltag_remove-input">
-<div class="input">
+<div class="cell border-box-sizing code_cell rendered">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">build_range</span><span class="p">():</span>
-    <span class="c1">#r = pd.date_range(*(pd.to_datetime([datetime.strptime(&#39;1-1-2018&#39;, &#39;%d-%m-%Y&#39;), datetime.strptime(&#39;1-9-2021&#39;, &#39;%d-%m-%Y&#39;)]) + pd.offsets.MonthEnd()), freq=&#39;M&#39;) </span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;1-1-2018&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;1-11-2021&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">)])</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">MonthEnd</span><span class="p">()),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span> 
-    <span class="k">return</span> <span class="n">r</span>
+<div class="output_wrapper">
+<div class="output">
 
-<span class="k">def</span> <span class="nf">filter_data</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">d</span><span class="p">[(</span><span class="n">d</span><span class="o">.</span><span class="n">opened_year</span> <span class="o">==</span> <span class="n">year</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span> <span class="n">d</span><span class="o">.</span><span class="n">opened_month</span> <span class="o">==</span> <span class="n">month</span> <span class="p">)]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<div class="output_area">
 
-<span class="k">def</span> <span class="nf">build_monthly_caseload</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-    <span class="n">summaryfilename</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;_Adjudicated_Summary.csv&#39;</span> <span class="p">)</span> <span class="c1">#Jan_2018_toSept2021.csv</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;LAST_STATUS_DATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Year Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">end_date</span>
 
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Year Span&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="p">])</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">MonthEnd</span><span class="p">()),</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span>
-                  <span class="nb">zip</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;CASE_OPENED_DT&#39;</span><span class="p">]),</span>
-                       <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Year Date&#39;</span><span class="p">]))]</span>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="f_caseload_isopen" class="doc_header"><code>f_caseload_isopen</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L63" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>f_caseload_isopen</code>(<strong><code>r</code></strong>)</p>
+</blockquote>
 
-    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">&#39;Year Span&#39;</span><span class="p">)</span>
+</div>
 
-    <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">None</span>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
     
-    <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="s1">&#39;Open Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Closed Count&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span> <span class="n">f_caseload_isopen</span>   <span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
-    <span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
     
-    <span class="c1"># we have determined impact for each case, now aggregate numbers so we have the impact for the month of data</span>
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
 
 
-    <span class="n">aggregation</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Open Count&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Open Count&#39;</span><span class="p">,</span><span class="s1">&#39;sum&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;Closed Count&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Closed Count&#39;</span><span class="p">,</span><span class="s1">&#39;sum&#39;</span><span class="p">),</span>
-    <span class="s1">&#39;Case Count&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;DRIVERS_LICENSE_NO&#39;</span><span class="p">,</span><span class="s1">&#39;count&#39;</span><span class="p">),</span>
-        <span class="s1">&#39;Status Count&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;STATUS_COUNT&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">)</span>
-    <span class="p">}</span>
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="build_range" class="doc_header"><code>build_range</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L192" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_range</code>()</p>
+</blockquote>
 
-    <span class="n">monthly_counts</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;CASE_OPENED_DT&#39;</span><span class="p">)</span> <span class="p">,</span> 
-                                  <span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;Year Span&#39;</span><span class="p">),</span>
-                                  <span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span><span class="p">),</span>
-                                  <span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;Age Category&#39;</span><span class="p">),</span>                                   
-                                 <span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span> <span class="n">aggregation</span><span class="p">)</span>
-    
-    <span class="n">monthly_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">monthly_counts</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    <span class="n">monthly_counts</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">summaryfilename</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">monthly_counts</span>
-</pre></div>
+</div>
 
-    </div>
+</div>
+
 </div>
 </div>
 
@@ -260,39 +264,210 @@ nb_path: "02_core.caseload.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered celltag_remove-input">
-<div class="input">
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">generate_caseload_data</span><span class="p">(</span><span class="n">f_path</span><span class="p">):</span>
-    <span class="n">caseload_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+</div>
+    {% endraw %}
 
-    <span class="n">r</span> <span class="o">=</span> <span class="n">build_range</span><span class="p">()</span>
-    <span class="c1">#for date in r[:2]:</span>
-    <span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="n">r</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">year</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="n">r</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">month</span><span class="p">)</span> <span class="p">:</span> <span class="k">break</span>
-
-        <span class="n">filename</span> <span class="o">=</span> <span class="n">generated_data_file_path</span> <span class="o">+</span> <span class="n">date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%b&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="s1">&#39;toNov2021_ADJUDICATEDCASELOAD&#39;</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span> 
-
-        <span class="n">monthly_data</span> <span class="o">=</span> <span class="n">filter_data</span><span class="p">(</span><span class="n">cases_df</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>    
-
-        <span class="n">caseload_month</span> <span class="o">=</span> <span class="n">build_monthly_caseload</span><span class="p">(</span><span class="n">monthly_data</span><span class="p">,</span><span class="n">r</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">filename</span><span class="p">)</span>
-        
-        <span class="k">if</span> <span class="n">caseload_month</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> 
-            <span class="k">break</span>
-        <span class="k">if</span> <span class="n">caseload_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-            <span class="n">caseload_data</span> <span class="o">=</span> <span class="n">caseload_month</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">caseload_data</span> <span class="o">=</span> <span class="n">caseload_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">caseload_month</span><span class="p">)</span>
+    {% raw %}
     
-    <span class="k">return</span> <span class="n">caseload_data</span>
+<div class="cell border-box-sizing code_cell rendered">
 
-    
-</pre></div>
+<div class="output_wrapper">
+<div class="output">
 
-    </div>
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="filter_data" class="doc_header"><code>filter_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L199" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>filter_data</code>(<strong><code>d</code></strong>, <strong><code>year</code></strong>, <strong><code>month</code></strong>)</p>
+</blockquote>
+
+</div>
+
+</div>
+
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="BUILD-MONTHLY-CASELOAD">BUILD MONTHLY CASELOAD<a class="anchor-link" href="#BUILD-MONTHLY-CASELOAD"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="build_monthly_caseload" class="doc_header"><code>build_monthly_caseload</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L206" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_monthly_caseload</code>(<strong><code>d</code></strong>, <strong><code>end_date</code></strong>, <strong><code>filename</code></strong>=<em><code>None</code></em>)</p>
+</blockquote>
+<p>given a dataframe, and an enddate for the period, return a dataframe with a case 'status info' record for each month</p>
+<p>Parameters:
+dataframe (pd.DataFrame):
+end_date (datetime): date to limit the generation of case 'status info' records
+filename (str): <todo></p>
+<p>Returns:
+pd.DataFrame</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="AGGREGATE-MONTHLY-DATA">AGGREGATE MONTHLY DATA<a class="anchor-link" href="#AGGREGATE-MONTHLY-DATA"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="aggregate_monthly_data" class="doc_header"><code>aggregate_monthly_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L251" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>aggregate_monthly_data</code>(<strong><code>data</code></strong>, <strong><code>ag_dict</code></strong>=<em><code>{}</code></em>)</p>
+</blockquote>
+<p>given a dataframe, and an enddate for the period, return a dataframe with a case 'status info' record for each month</p>
+<p>Parameters:
+data (pd.DataFrame):
+by (list): list of fields to group by</p>
+<p>Returns:
+pd.DataFrame</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GENERATE-CASELOAD-DATA">GENERATE CASELOAD DATA<a class="anchor-link" href="#GENERATE-CASELOAD-DATA"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="generate_caseload_data" class="doc_header"><code>generate_caseload_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L286" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_caseload_data</code>(<strong><code>dataframe</code></strong>)</p>
+</blockquote>
+<p>process the case data month-by=month</p>
+<p>Parameters:
+dataframe (pd.DataFrame)
+f_path (str): the file path wher the generated caseload data should be put</p>
+<p>Returns:
+pd.DataFrame</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered celltag_remove-input">
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="GENERATE-AND-WRITE-CASELOAD-DATA">GENERATE AND WRITE CASELOAD DATA<a class="anchor-link" href="#GENERATE-AND-WRITE-CASELOAD-DATA"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<h4 id="generate_and_write_caseload_data" class="doc_header"><code>generate_and_write_caseload_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L326" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_and_write_caseload_data</code>(<strong><code>dataframe</code></strong>, <strong><code>f_path</code></strong>)</p>
+</blockquote>
+<p>process the case data month-by=month</p>
+<p>Parameters:
+dataframe (pd.DataFrame)
+f_path (str): the file path wher the generated caseload data should be put</p>
+<p>Returns:
+pd.DataFrame</p>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -579,6 +754,1755 @@ nb_path: "02_core.caseload.ipynb"
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="SAMPLE-DATA">SAMPLE DATA<a class="anchor-link" href="#SAMPLE-DATA"> </a></h2><blockquote><p>We need to prepare a set of data to send to the function that explodes the cases into records for each month in &gt; it's lifecycle</p>
+</blockquote>
+<p>Our SAMPLE dataframe needs the following columns:<em> CASE_OPENED_DT</em> LAST_STATUS_DATE</p>
+<ul>
+<li>DRIVERS_LICENSE_NO</li>
+<li>STATUS_COUNT</li>
+<li>Year Span</li>
+<li>Status : 'Open' or 'Closed'</li>
+<li>Age Category: 'Over 80' or 'Under 80'</li>
+</ul>
+<p>columns = ['CASE_OPENED_DT','LAST_STATUS_DATE','DRIVERS_LICENSE_NO','STATUS_COUNT','Year Span','Status','Age Category']</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="TEMP-CODE-DOC">TEMP CODE DOC<a class="anchor-link" href="#TEMP-CODE-DOC"> </a></h4><p>from build_monthly_caseload</p>
+<p>def build_monthly_caseload(d, end_date, filename):
+    summaryfilename = filename.replace('.csv', '_Adjudicated_Summary.csv' ) #Jan_2018_toSept2021.csv
+    data = d[d['LAST_STATUS_DATE'].notna()].reset_index()
+    data['Year Date'] = end_date</p>
+
+<pre><code>data['Year Span'] = [pd.date_range(*(pd.to_datetime([s, e]) + pd.offsets.MonthEnd()), freq='M') for s, e in
+              zip(pd.to_datetime(data['CASE_OPENED_DT']),
+                   pd.to_datetime(data['Year Date']))]
+
+data = data.explode('Year Span')
+
+if data.empty:
+    return None
+
+data[['Status', 'Open Count', 'Closed Count']] = data.apply( f_caseload_isopen   , axis=1).to_list()
+data.to_csv(filename, index = False)
+
+# we have determined impact for each case, now aggregate numbers so we have the impact for the month of data
+
+
+aggregation = {
+'Open Count': ('Open Count','sum'),
+'Closed Count': ('Closed Count','sum'),
+'Case Count': ('DRIVERS_LICENSE_NO','count'),
+    'Status Count': ('STATUS_COUNT', 'sum')
+}
+
+monthly_counts = data.groupby([pd.Grouper(freq='M', key='CASE_OPENED_DT') , 
+                              pd.Grouper(key='Year Span'),
+                              pd.Grouper(key='Status'),
+                              pd.Grouper(key='Age Category'),                                   
+                             ]).agg(** aggregation)
+
+monthly_counts = pd.DataFrame(monthly_counts).reset_index()
+monthly_counts.to_csv(summaryfilename, index = False)
+
+return monthly_counts</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="TEMP-CODE-DOC">TEMP CODE DOC<a class="anchor-link" href="#TEMP-CODE-DOC"> </a></h4>
+<pre><code>
+def build_monthly_caseload(d, end_date, filename):
+    summaryfilename = filename.replace('.csv', '_Adjudicated_Summary.csv' ) #Jan_2018_toSept2021.csv
+    data = d[d['LAST_STATUS_DATE'].notna()].reset_index()
+    data['Year Date'] = end_date
+
+    data['Year Span'] = [pd.date_range(*(pd.to_datetime([s, e]) + pd.offsets.MonthEnd()), freq='M') for s, e in
+                  zip(pd.to_datetime(data['CASE_OPENED_DT']),
+                       pd.to_datetime(data['Year Date']))]
+
+    data = data.explode('Year Span')
+
+    if data.empty:
+        return None
+
+    data[['Status', 'Open Count', 'Closed Count']] = data.apply( f_caseload_isopen   , axis=1).to_list()
+    data.to_csv(filename, index = False)
+
+    # we have determined impact for each case, now aggregate numbers so we have the impact for the month of data
+
+
+    aggregation = {
+    'Open Count': ('Open Count','sum'),
+    'Closed Count': ('Closed Count','sum'),
+    'Case Count': ('DRIVERS_LICENSE_NO','count'),
+        'Status Count': ('STATUS_COUNT', 'sum')
+    }
+
+    monthly_counts = data.groupby([pd.Grouper(freq='M', key='CASE_OPENED_DT') , 
+                                  pd.Grouper(key='Year Span'),
+                                  pd.Grouper(key='Status'),
+                                  pd.Grouper(key='Age Category'),                                   
+                                 ]).agg(** aggregation)
+
+    monthly_counts = pd.DataFrame(monthly_counts).reset_index()
+    monthly_counts.to_csv(summaryfilename, index = False)
+
+    return monthly_counts</code></pre>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">opened_dt</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;2018-09-13&#39;</span>  
+    <span class="p">,</span><span class="s1">&#39;2018-09-13&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-09-23&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-09-23&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-09-23&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-09-23&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-09-23&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-10-13&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-10-23&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-10-23&#39;</span> <span class="p">]</span>
+<span class="n">last_status_dt</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;2018-09-13&#39;</span>  
+    <span class="p">,</span><span class="s1">&#39;2018-09-23&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-10-23&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-11-23&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-11-23&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-11-23&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-11-23&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-10-13&#39;</span>
+    <span class="p">,</span><span class="s1">&#39;2018-11-23&#39;</span>    
+    <span class="p">,</span><span class="s1">&#39;2018-12-23&#39;</span> <span class="p">]</span>
+
+<span class="n">dl_no</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;990308&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;191228&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;184859&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;889368&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;536602&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;190550&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;022627&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;769820&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;304546&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;308591&#39;</span>
+<span class="p">]</span>
+
+<span class="n">scenario_type</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;BASIC - SAME MONTH&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;BASIC - SAME MONTH&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;BASIC - 1 MONTH&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;BASIC - 3 MONTHS&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;&#39;</span>
+<span class="p">,</span>    <span class="s1">&#39;STILL OPEN&#39;</span>
+<span class="p">]</span>
+    
+<span class="c1">#output_string = &#39;&#39;.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(10))</span>
+
+<span class="n">zipped</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span> <span class="n">scenario_type</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">opened_dt</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">last_status_dt</span><span class="p">),</span> <span class="n">dl_no</span> <span class="p">))</span>
+
+<span class="n">sample_cases_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">zipped</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;SCENARIO&#39;</span><span class="p">,</span> <span class="s1">&#39;CASE_OPENED_DT&#39;</span><span class="p">,</span><span class="s1">&#39;LAST_STATUS_DATE&#39;</span><span class="p">,</span> <span class="s1">&#39;DRIVERS_LICENSE_NO&#39;</span><span class="p">])</span>
+
+<span class="c1">#cases_df[&#39;DRIVERS_LICENSE_NO&#39;] = cases_df.apply( lambda x: &#39;&#39;.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(6)), axis=1)</span>
+<span class="c1">#    cases_df[&#39;DRIVERS_LICENSE_NO&#39;] = cases_df.apply( lambda x: &#39;&#39;.join(random.SystemRandom().choice(string.digits) for _ in range(6)), axis=1)</span>
+<span class="n">sample_cases_df</span><span class="p">[</span><span class="s1">&#39;STATUS_COUNT&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample_cases_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sample_cases_df</span><span class="p">[</span><span class="s1">&#39;Age Category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample_cases_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;Over 80&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sample_cases_df</span><span class="p">[</span><span class="s1">&#39;GENERAL_STATUS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sample_cases_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;Closed&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sample_cases_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Open&#39;</span>
+<span class="n">sample_cases_df</span>
+
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SCENARIO</th>
+      <th>CASE_OPENED_DT</th>
+      <th>LAST_STATUS_DATE</th>
+      <th>DRIVERS_LICENSE_NO</th>
+      <th>STATUS_COUNT</th>
+      <th>Age Category</th>
+      <th>GENERAL_STATUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BASIC - SAME MONTH</td>
+      <td>2018-09-13</td>
+      <td>2018-09-13</td>
+      <td>990308</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BASIC - SAME MONTH</td>
+      <td>2018-09-13</td>
+      <td>2018-09-23</td>
+      <td>191228</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BASIC - 1 MONTH</td>
+      <td>2018-09-23</td>
+      <td>2018-10-23</td>
+      <td>184859</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BASIC - 3 MONTHS</td>
+      <td>2018-09-23</td>
+      <td>2018-11-23</td>
+      <td>889368</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td></td>
+      <td>2018-09-23</td>
+      <td>2018-11-23</td>
+      <td>536602</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td></td>
+      <td>2018-09-23</td>
+      <td>2018-11-23</td>
+      <td>190550</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td></td>
+      <td>2018-09-23</td>
+      <td>2018-11-23</td>
+      <td>022627</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td></td>
+      <td>2018-10-13</td>
+      <td>2018-10-13</td>
+      <td>769820</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td></td>
+      <td>2018-10-23</td>
+      <td>2018-11-23</td>
+      <td>304546</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>STILL OPEN</td>
+      <td>2018-10-23</td>
+      <td>2018-12-23</td>
+      <td>308591</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Open</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Close-Analysis-BASIC-1-MONTH-EXACTLY">Close Analysis BASIC 1 MONTH EXACTLY<a class="anchor-link" href="#Close-Analysis-BASIC-1-MONTH-EXACTLY"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">opened_date</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2018-10-23&#39;</span><span class="p">,</span> <span class="s1">&#39;2018-10-23&#39;</span><span class="p">,</span> <span class="s1">&#39;2018-10-23&#39;</span><span class="p">]</span> <span class="c1">#CASE_OPENED_DT	</span>
+<span class="n">opened_count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1">#Opened Count	</span>
+<span class="n">count_as_open</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1">#Count as Open	</span>
+<span class="n">closed_count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#Closed Count	</span>
+<span class="n">ignore_case</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Ignore Case</span>
+
+<span class="n">zipped</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span>  <span class="n">opened_count</span><span class="p">,</span> <span class="n">count_as_open</span><span class="p">,</span> <span class="n">closed_count</span><span class="p">,</span> <span class="n">ignore_case</span> <span class="p">))</span>
+<span class="n">right_side_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">zipped</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Opened Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Count as Open&#39;</span><span class="p">,</span> <span class="s1">&#39;Closed Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Ignore Case&#39;</span><span class="p">])</span>
+<span class="c1">#print(right_side_test)</span>
+
+
+
+
+
+<span class="n">driver_184859</span> <span class="o">=</span>  <span class="n">sample_cases_df</span><span class="p">[</span><span class="n">sample_cases_df</span><span class="p">[</span><span class="s1">&#39;DRIVERS_LICENSE_NO&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;184859&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">year_span_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;20190101&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">caseload_184859_month</span> <span class="o">=</span> <span class="n">build_monthly_caseload</span><span class="p">(</span><span class="n">driver_184859</span><span class="p">,</span> <span class="n">year_span_dt</span><span class="p">)</span>
+<span class="n">left_side</span> <span class="o">=</span> <span class="n">caseload_184859_month</span><span class="p">[[</span><span class="s1">&#39;Opened Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Count as Open&#39;</span><span class="p">,</span> <span class="s1">&#39;Closed Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Ignore Case&#39;</span><span class="p">]]</span>
+
+<span class="n">caseload_184859_month</span><span class="p">[[</span><span class="s1">&#39;CASE_OPENED_DT&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="s1">&#39;Opened Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Count as Open&#39;</span><span class="p">,</span>  <span class="s1">&#39;Closed Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Ignore Case&#39;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CASE_OPENED_DT</th>
+      <th>Status</th>
+      <th>Opened Count</th>
+      <th>Count as Open</th>
+      <th>Closed Count</th>
+      <th>Ignore Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-09-23</td>
+      <td>Open</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-09-23</td>
+      <td>Closed</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="TEST-=&gt;-BASIC-1-MONTH">TEST =&gt; BASIC 1 MONTH<a class="anchor-link" href="#TEST-=&gt;-BASIC-1-MONTH"> </a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Close-analysis-BASIC-3-MONTHS">Close analysis BASIC 3 MONTHS<a class="anchor-link" href="#Close-analysis-BASIC-3-MONTHS"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">left_side</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">right_side_test</span><span class="p">)</span>
+
+
+<span class="n">assert_frame_equal</span><span class="p">(</span><span class="n">left_side</span><span class="p">,</span> <span class="n">right_side_test</span><span class="p">,</span> <span class="n">check_dtype</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   Opened Count  Count as Open  Closed Count  Ignore Case
+0             1              1             0            0
+1             0              0             1            0
+   Opened Count  Count as Open  Closed Count  Ignore Case
+0             1              1             0            0
+1             0              0             1            0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">year_span_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;20190101&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">driver_889368</span> <span class="o">=</span>  <span class="n">sample_cases_df</span><span class="p">[</span><span class="n">sample_cases_df</span><span class="p">[</span><span class="s1">&#39;DRIVERS_LICENSE_NO&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;889368&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">caseload_889368_month</span> <span class="o">=</span> <span class="n">build_monthly_caseload</span><span class="p">(</span><span class="n">driver_889368</span><span class="p">,</span> <span class="n">year_span_dt</span><span class="p">)</span>
+
+<span class="n">caseload_889368_month</span><span class="p">[[</span><span class="s1">&#39;CASE_OPENED_DT&#39;</span><span class="p">,</span><span class="s1">&#39;Opened Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Count as Open&#39;</span><span class="p">,</span>  <span class="s1">&#39;Closed Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Ignore Case&#39;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CASE_OPENED_DT</th>
+      <th>Opened Count</th>
+      <th>Count as Open</th>
+      <th>Closed Count</th>
+      <th>Ignore Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-09-23</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-09-23</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-09-23</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Close-analysis-STILL-OPEN">Close analysis STILL OPEN<a class="anchor-link" href="#Close-analysis-STILL-OPEN"> </a></h3><p>There is logic build around the last status data</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">driver_308591</span> <span class="o">=</span>  <span class="n">sample_cases_df</span><span class="p">[</span><span class="n">sample_cases_df</span><span class="p">[</span><span class="s1">&#39;DRIVERS_LICENSE_NO&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;308591&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">caseload_308591_month</span> <span class="o">=</span> <span class="n">build_monthly_caseload</span><span class="p">(</span><span class="n">driver_308591</span><span class="p">,</span> <span class="n">year_span_dt</span><span class="p">)</span>
+<span class="c1">#caseload_308591_month</span>
+<span class="n">caseload_308591_month</span><span class="p">[[</span><span class="s1">&#39;CASE_OPENED_DT&#39;</span><span class="p">,</span><span class="s1">&#39;Opened Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Count as Open&#39;</span><span class="p">,</span>  <span class="s1">&#39;Closed Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Ignore Case&#39;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CASE_OPENED_DT</th>
+      <th>Opened Count</th>
+      <th>Count as Open</th>
+      <th>Closed Count</th>
+      <th>Ignore Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-10-23</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-10-23</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-10-23</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2018-10-23</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#caseload_month = *build_monthly_caseload*(monthly_data,r[-1], filename)</span>
+
+<span class="c1">#pd.to_datetime(&#39;13000101&#39;, format=&#39;%Y%m%d&#39;, errors=&#39;ignore&#39;)</span>
+<span class="n">year_span_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;20190101&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">caseload_month</span> <span class="o">=</span> <span class="n">build_monthly_caseload</span><span class="p">(</span><span class="n">sample_cases_df</span><span class="p">,</span> <span class="n">year_span_dt</span><span class="p">,</span> <span class="s1">&#39;bla&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>bla
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">caseload_month</span> <span class="o">=</span> <span class="n">caseload_month</span><span class="p">[</span><span class="n">caseload_month</span><span class="p">[</span><span class="s1">&#39;Ignore Case&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">caseload_month</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;DRIVERS_LICENSE_NO&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;count(DRIVERS_LICENSE_NO):Q&#39;</span><span class="p">,</span>
+<span class="c1">#    y=&#39;STATUS_COUNT:Q&#39;,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Status&#39;</span>
+<span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-e07d5d9c07014985a841911f2f625983"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-e07d5d9c07014985a841911f2f625983") {
+      outputDiv = document.getElementById("altair-viz-e07d5d9c07014985a841911f2f625983");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-59ca8aac6f1145f1dd0c027fcef1b915"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "Status"}, "x": {"type": "quantitative", "aggregate": "count", "field": "DRIVERS_LICENSE_NO"}, "y": {"type": "nominal", "field": "DRIVERS_LICENSE_NO"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-59ca8aac6f1145f1dd0c027fcef1b915": [{"SCENARIO": "BASIC - SAME MONTH", "CASE_OPENED_DT": "2018-09-13T00:00:00", "LAST_STATUS_DATE": "2018-09-13T00:00:00", "DRIVERS_LICENSE_NO": "990308", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Closed", "Opened Count": 1, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "BASIC - SAME MONTH", "CASE_OPENED_DT": "2018-09-13T00:00:00", "LAST_STATUS_DATE": "2018-09-23T00:00:00", "DRIVERS_LICENSE_NO": "191228", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Closed", "Opened Count": 1, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "BASIC - 1 MONTH", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-10-23T00:00:00", "DRIVERS_LICENSE_NO": "184859", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "BASIC - 1 MONTH", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-10-23T00:00:00", "DRIVERS_LICENSE_NO": "184859", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "BASIC - 3 MONTHS", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "889368", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "BASIC - 3 MONTHS", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "889368", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "BASIC - 3 MONTHS", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "889368", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-11-30T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 2}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "536602", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "536602", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "536602", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-11-30T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 2}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "190550", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "190550", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "190550", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-11-30T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 2}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "022627", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "022627", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "022627", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-11-30T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 2}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-10-13T00:00:00", "LAST_STATUS_DATE": "2018-10-13T00:00:00", "DRIVERS_LICENSE_NO": "769820", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Closed", "Opened Count": 1, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-10-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "304546", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-10-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "304546", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-11-30T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "STILL OPEN", "CASE_OPENED_DT": "2018-10-23T00:00:00", "LAST_STATUS_DATE": "2018-12-23T00:00:00", "DRIVERS_LICENSE_NO": "308591", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Open", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "STILL OPEN", "CASE_OPENED_DT": "2018-10-23T00:00:00", "LAST_STATUS_DATE": "2018-12-23T00:00:00", "DRIVERS_LICENSE_NO": "308591", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Open", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-11-30T00:00:00", "Status": "Open", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "STILL OPEN", "CASE_OPENED_DT": "2018-10-23T00:00:00", "LAST_STATUS_DATE": "2018-12-23T00:00:00", "DRIVERS_LICENSE_NO": "308591", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Open", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-12-31T00:00:00", "Status": "Open", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 2}, {"SCENARIO": "STILL OPEN", "CASE_OPENED_DT": "2018-10-23T00:00:00", "LAST_STATUS_DATE": "2018-12-23T00:00:00", "DRIVERS_LICENSE_NO": "308591", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Open", "Year Date": "2019-01-01T00:00:00", "Year Span": "2019-01-31T00:00:00", "Status": "Open", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 3}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">aggregation</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="s1">&#39;Newly Opened Count&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Opened Count&#39;</span><span class="p">,</span><span class="s1">&#39;sum&#39;</span><span class="p">),</span>
+          <span class="s1">&#39;Newly Closed Cases&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Closed Count&#39;</span><span class="p">,</span><span class="s1">&#39;sum&#39;</span><span class="p">),</span>
+         <span class="s1">&#39;Currently Opened Count&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Count as Open&#39;</span><span class="p">,</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+         <span class="c1">#, &#39;Ignored Count&#39;: (&#39;Ignore Case&#39;,&#39;sum&#39;)</span>
+       <span class="c1">#,&#39;Activity Count&#39;: (&#39;DRIVERS_LICENSE_NO&#39;,&#39;count&#39;)</span>
+    <span class="p">}</span>
+
+<span class="n">summary</span> <span class="o">=</span> <span class="n">caseload_month</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Year Span&#39;</span><span class="p">])</span> \
+<span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="o">**</span> <span class="n">aggregation</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">summary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#summary_df[&#39;Cumulative Total&#39;] = summary_df[&#39;&#39;]</span>
+<span class="n">summary_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year Span</th>
+      <th>Newly Opened Count</th>
+      <th>Newly Closed Cases</th>
+      <th>Currently Opened Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-09-30</td>
+      <td>7</td>
+      <td>2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-10-31</td>
+      <td>3</td>
+      <td>2</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-11-30</td>
+      <td>0</td>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2018-12-31</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-01-31</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="TEST-=&gt;-Summary-Data">TEST =&gt; Summary Data<a class="anchor-link" href="#TEST-=&gt;-Summary-Data"> </a></h4><p>But what we really want is the following</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">newly_opened_count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Newly Opened Count</span>
+<span class="n">newly_closed_cases</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Newly Closed Cases	</span>
+<span class="n">currently_open</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1">#Currently Opened Count</span>
+
+<span class="n">zipped</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span>  <span class="n">newly_opened_count</span><span class="p">,</span> <span class="n">newly_closed_cases</span><span class="p">,</span> <span class="n">currently_open</span> <span class="p">))</span>
+<span class="n">right_side_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">zipped</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Newly Opened Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Newly Closed Cases&#39;</span><span class="p">,</span> <span class="s1">&#39;Currently Opened Count&#39;</span><span class="p">])</span>
+
+
+<span class="c1">#test_df.iloc[2,2] = 1</span>
+
+<span class="n">left_side</span> <span class="o">=</span> <span class="n">summary_df</span><span class="p">[[</span><span class="s1">&#39;Newly Opened Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Newly Closed Cases&#39;</span><span class="p">,</span> <span class="s1">&#39;Currently Opened Count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">assert_frame_equal</span><span class="p">(</span><span class="n">left_side</span><span class="p">,</span> <span class="n">right_side_test</span><span class="p">,</span> <span class="n">check_dtype</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+
+
+<span class="c1">#test_df.iloc[3,2] = 0</span>
+<span class="c1">#test_df.iloc[3,3] = 0</span>
+
+<span class="c1">#test_df.iloc[2,3] = 2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Build-Monthly-Caseload-=&gt;-TEST">Build Monthly Caseload =&gt; TEST<a class="anchor-link" href="#Build-Monthly-Caseload-=&gt;-TEST"> </a></h3><blockquote><p>build_monthly_caseload</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">year_span_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;20190101&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">left_side_test</span> <span class="o">=</span> <span class="n">build_monthly_caseload</span><span class="p">(</span><span class="n">sample_cases_df</span><span class="p">,</span> <span class="n">year_span_dt</span><span class="p">)</span>
+
+<span class="n">summary_data</span> <span class="o">=</span> <span class="n">aggregate_monthly_data</span><span class="p">(</span><span class="n">left_side_test</span><span class="p">)</span>
+
+<span class="n">summary_data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CASE_OPENED_DT</th>
+      <th>Year Span</th>
+      <th>Status</th>
+      <th>Age Category</th>
+      <th>Opened Count</th>
+      <th>Count as Open</th>
+      <th>Closed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-09-30</td>
+      <td>2018-09-30</td>
+      <td>Closed</td>
+      <td>Over 80</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-09-30</td>
+      <td>2018-09-30</td>
+      <td>Open</td>
+      <td>Over 80</td>
+      <td>5</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-09-30</td>
+      <td>2018-10-31</td>
+      <td>Closed</td>
+      <td>Over 80</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2018-09-30</td>
+      <td>2018-11-30</td>
+      <td>Closed</td>
+      <td>Over 80</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2018-10-31</td>
+      <td>2018-10-31</td>
+      <td>Closed</td>
+      <td>Over 80</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2018-10-31</td>
+      <td>2018-10-31</td>
+      <td>Open</td>
+      <td>Over 80</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2018-10-31</td>
+      <td>2018-11-30</td>
+      <td>Closed</td>
+      <td>Over 80</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2018-10-31</td>
+      <td>2018-11-30</td>
+      <td>Open</td>
+      <td>Over 80</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2018-10-31</td>
+      <td>2018-12-31</td>
+      <td>Open</td>
+      <td>Over 80</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2018-10-31</td>
+      <td>2019-01-31</td>
+      <td>Open</td>
+      <td>Over 80</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">left_side</span> <span class="o">=</span> <span class="n">caseload_889368_month</span><span class="p">[[</span><span class="s1">&#39;CASE_OPENED_DT&#39;</span><span class="p">,</span><span class="s1">&#39;Opened Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Count as Open&#39;</span><span class="p">,</span> <span class="s1">&#39;Closed Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Ignore Case&#39;</span><span class="p">]]</span>
+
+<span class="n">left_side</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CASE_OPENED_DT</th>
+      <th>Opened Count</th>
+      <th>Count as Open</th>
+      <th>Closed Count</th>
+      <th>Ignore Case</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-09-23</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-09-23</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-09-23</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">opened_date</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2018-09-23&#39;</span><span class="p">,</span> <span class="s1">&#39;2018-09-23&#39;</span><span class="p">,</span> <span class="s1">&#39;2018-09-23&#39;</span><span class="p">,</span> <span class="s1">&#39;2018-09-23&#39;</span><span class="p">]</span> <span class="c1">#CASE_OPENED_DT	</span>
+<span class="n">opened_count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1">#Opened Count	</span>
+<span class="n">count_as_open</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1">#Count as Open	</span>
+<span class="n">closed_count</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#Closed Count	</span>
+<span class="n">ignore_case</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Ignore Case</span>
+
+<span class="n">zipped</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">opened_date</span><span class="p">),</span> <span class="n">opened_count</span><span class="p">,</span> <span class="n">count_as_open</span><span class="p">,</span> <span class="n">closed_count</span><span class="p">,</span> <span class="n">ignore_case</span> <span class="p">))</span>
+<span class="n">right_side_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">zipped</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CASE_OPENED_DT&#39;</span><span class="p">,</span><span class="s1">&#39;Opened Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Count as Open&#39;</span><span class="p">,</span> <span class="s1">&#39;Closed Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Ignore Case&#39;</span><span class="p">])</span>
+<span class="c1">#right_side_test</span>
+
+<span class="n">assert_frame_equal</span><span class="p">(</span><span class="n">left_side</span><span class="p">,</span> <span class="n">right_side_test</span><span class="p">,</span> <span class="n">check_dtype</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="F-Caseload-Is-Open-=&gt;-TESTS">F Caseload Is Open =&gt; TESTS<a class="anchor-link" href="#F-Caseload-Is-Open-=&gt;-TESTS"> </a></h3>
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># driver_308591 =  sample_cases_df[sample_cases_df[&#39;DRIVERS_LICENSE_NO&#39;] == &#39;308591&#39;].reset_index(drop=True)</span>
+<span class="c1"># caseload_308591_month = build_monthly_caseload(driver_308591, year_span_dt)</span>
+<span class="c1"># #caseload_308591_month</span>
+<span class="c1"># caseload_308591_month[[&#39;CASE_OPENED_DT&#39;,&#39;Opened Count&#39;, &#39;Count as Open&#39;,  &#39;Closed Count&#39;, &#39;Ignore Case&#39;]]</span>
+
+<span class="c1">#sample_cases_df[[&#39;Status&#39;, &#39;Opened Count&#39;, &#39;Closed Count&#39;, &#39;Count as Open&#39;, &#39;Ignore Case&#39;,  &#39;open_year_span_diff&#39;]] = sample_cases_df.apply( f_caseload_isopen   , axis=1).to_list()</span>
+
+<span class="n">year_span_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;20190101&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">left_side_test</span> <span class="o">=</span> <span class="n">build_monthly_caseload</span><span class="p">(</span><span class="n">sample_cases_df</span><span class="p">,</span> <span class="n">year_span_dt</span><span class="p">)</span>
+
+<span class="n">left_side_test</span><span class="p">[[</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="s1">&#39;Opened Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Closed Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Count as Open&#39;</span><span class="p">,</span> <span class="s1">&#39;Ignore Case&#39;</span><span class="p">,</span>  <span class="s1">&#39;open_year_span_diff&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">left_side_test</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span> <span class="n">f_caseload_isopen</span>   <span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+<span class="n">left_side_test</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SCENARIO</th>
+      <th>CASE_OPENED_DT</th>
+      <th>LAST_STATUS_DATE</th>
+      <th>DRIVERS_LICENSE_NO</th>
+      <th>STATUS_COUNT</th>
+      <th>Age Category</th>
+      <th>GENERAL_STATUS</th>
+      <th>Year Date</th>
+      <th>Year Span</th>
+      <th>Status</th>
+      <th>Opened Count</th>
+      <th>Closed Count</th>
+      <th>Count as Open</th>
+      <th>Ignore Case</th>
+      <th>open_year_span_diff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BASIC - SAME MONTH</td>
+      <td>2018-09-13</td>
+      <td>2018-09-13</td>
+      <td>990308</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+      <td>2019-01-01</td>
+      <td>2018-09-30</td>
+      <td>Closed</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BASIC - SAME MONTH</td>
+      <td>2018-09-13</td>
+      <td>2018-09-23</td>
+      <td>191228</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+      <td>2019-01-01</td>
+      <td>2018-09-30</td>
+      <td>Closed</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BASIC - 1 MONTH</td>
+      <td>2018-09-23</td>
+      <td>2018-10-23</td>
+      <td>184859</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+      <td>2019-01-01</td>
+      <td>2018-09-30</td>
+      <td>Open</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BASIC - 1 MONTH</td>
+      <td>2018-09-23</td>
+      <td>2018-10-23</td>
+      <td>184859</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+      <td>2019-01-01</td>
+      <td>2018-10-31</td>
+      <td>Closed</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BASIC - 3 MONTHS</td>
+      <td>2018-09-23</td>
+      <td>2018-11-23</td>
+      <td>889368</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+      <td>2019-01-01</td>
+      <td>2018-09-30</td>
+      <td>Open</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">driver_889368</span> <span class="o">=</span>  <span class="n">sample_cases_df</span><span class="p">[</span><span class="n">sample_cases_df</span><span class="p">[</span><span class="s1">&#39;DRIVERS_LICENSE_NO&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;889368&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">driver_889368</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="c1"># caseload_308591_month = build_monthly_caseload(driver_308591, year_span_dt)</span>
+<span class="c1"># #caseload_308591_month</span>
+<span class="c1"># caseload_308591_month[[&#39;CASE_OPENED_DT&#39;,&#39;Opened Count&#39;, &#39;Count as Open&#39;,  &#39;Closed Count&#39;, &#39;Ignore Case&#39;]]</span>
+
+<span class="c1">#sample_cases_df[[&#39;Status&#39;, &#39;Opened Count&#39;, &#39;Closed Count&#39;, &#39;Count as Open&#39;, &#39;Ignore Case&#39;,  &#39;open_year_span_diff&#39;]] = sample_cases_df.apply( f_caseload_isopen   , axis=1).to_list()</span>
+
+
+
+<span class="n">year_span_dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;20190101&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">left_side_test</span> <span class="o">=</span> <span class="n">build_monthly_caseload</span><span class="p">(</span><span class="n">driver_889368</span><span class="p">,</span> <span class="n">year_span_dt</span><span class="p">)</span>
+
+<span class="n">left_side_test</span><span class="p">[[</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="s1">&#39;Opened Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Closed Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Count as Open&#39;</span><span class="p">,</span> <span class="s1">&#39;Ignore Case&#39;</span><span class="p">,</span>  <span class="s1">&#39;open_year_span_diff&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">left_side_test</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span> <span class="n">f_caseload_isopen</span>   <span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+
+<span class="n">left_side_test</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SCENARIO</th>
+      <th>CASE_OPENED_DT</th>
+      <th>LAST_STATUS_DATE</th>
+      <th>DRIVERS_LICENSE_NO</th>
+      <th>STATUS_COUNT</th>
+      <th>Age Category</th>
+      <th>GENERAL_STATUS</th>
+      <th>Year Date</th>
+      <th>Year Span</th>
+      <th>Status</th>
+      <th>Opened Count</th>
+      <th>Closed Count</th>
+      <th>Count as Open</th>
+      <th>Ignore Case</th>
+      <th>open_year_span_diff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BASIC - 3 MONTHS</td>
+      <td>2018-09-23</td>
+      <td></td>
+      <td>889368</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+      <td>2019-01-01</td>
+      <td>2018-09-30</td>
+      <td>Open</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BASIC - 3 MONTHS</td>
+      <td>2018-09-23</td>
+      <td></td>
+      <td>889368</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+      <td>2019-01-01</td>
+      <td>2018-10-31</td>
+      <td>Open</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BASIC - 3 MONTHS</td>
+      <td>2018-09-23</td>
+      <td></td>
+      <td>889368</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+      <td>2019-01-01</td>
+      <td>2018-11-30</td>
+      <td>Open</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BASIC - 3 MONTHS</td>
+      <td>2018-09-23</td>
+      <td></td>
+      <td>889368</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+      <td>2019-01-01</td>
+      <td>2018-12-31</td>
+      <td>Open</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>BASIC - 3 MONTHS</td>
+      <td>2018-09-23</td>
+      <td></td>
+      <td>889368</td>
+      <td>5</td>
+      <td>Over 80</td>
+      <td>Closed</td>
+      <td>2019-01-01</td>
+      <td>2019-01-31</td>
+      <td>Open</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pivot.reset_index(drop=True)</span>
+
+<span class="c1"># aggregation = {</span>
+<span class="c1">#          &#39;Open Count&#39;: (&#39;Open Count&#39;,&#39;sum&#39;),</span>
+<span class="c1">#        &#39;Closed Cases&#39;: (&#39;Closed Count&#39;,&#39;sum&#39;),</span>
+<span class="c1">#        &#39;Case Count&#39;: (&#39;Closed Count&#39;,&#39;sum&#39;)</span>
+<span class="c1">#     }</span>
+
+<span class="c1"># backlog_data_byday = jan_data.groupby([&#39;Year Span&#39;]) \</span>
+<span class="c1"># .agg(** aggregation).reset_index()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">open</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">caseload_month</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(Opened Count)&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Year Span:T&#39;</span><span class="p">,</span>
+<span class="c1">#    y=&#39;STATUS_COUNT:Q&#39;,</span>
+<span class="c1">#    color=&#39;Status&#39;</span>
+<span class="p">)</span>
+
+<span class="nb">open</span> <span class="o">|</span> <span class="nb">open</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(Closed Count):Q&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="nb">open</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sum(Count as Open):Q&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<div id="altair-viz-93cba2f4cbea4e5aa2bf8c0b62b0d16c"></div>
+<script type="text/javascript">
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-93cba2f4cbea4e5aa2bf8c0b62b0d16c") {
+      outputDiv = document.getElementById("altair-viz-93cba2f4cbea4e5aa2bf8c0b62b0d16c");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.8.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function loadScript(lib) {
+      return new Promise(function(resolve, reject) {
+        var s = document.createElement('script');
+        s.src = paths[lib];
+        s.async = true;
+        s.onload = () => resolve(paths[lib]);
+        s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+        document.getElementsByTagName("head")[0].appendChild(s);
+      });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else if (typeof vegaEmbed === "function") {
+      displayChart(vegaEmbed);
+    } else {
+      loadScript("vega")
+        .then(() => loadScript("vega-lite"))
+        .then(() => loadScript("vega-embed"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": "line", "encoding": {"x": {"type": "temporal", "field": "Year Span"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "Opened Count"}}}, {"mark": "line", "encoding": {"x": {"type": "temporal", "field": "Year Span"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "Closed Count"}}}, {"mark": "line", "encoding": {"x": {"type": "temporal", "field": "Year Span"}, "y": {"type": "quantitative", "aggregate": "sum", "field": "Count as Open"}}}], "data": {"name": "data-59ca8aac6f1145f1dd0c027fcef1b915"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-59ca8aac6f1145f1dd0c027fcef1b915": [{"SCENARIO": "BASIC - SAME MONTH", "CASE_OPENED_DT": "2018-09-13T00:00:00", "LAST_STATUS_DATE": "2018-09-13T00:00:00", "DRIVERS_LICENSE_NO": "990308", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Closed", "Opened Count": 1, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "BASIC - SAME MONTH", "CASE_OPENED_DT": "2018-09-13T00:00:00", "LAST_STATUS_DATE": "2018-09-23T00:00:00", "DRIVERS_LICENSE_NO": "191228", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Closed", "Opened Count": 1, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "BASIC - 1 MONTH", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-10-23T00:00:00", "DRIVERS_LICENSE_NO": "184859", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "BASIC - 1 MONTH", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-10-23T00:00:00", "DRIVERS_LICENSE_NO": "184859", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "BASIC - 3 MONTHS", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "889368", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "BASIC - 3 MONTHS", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "889368", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "BASIC - 3 MONTHS", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "889368", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-11-30T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 2}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "536602", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "536602", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "536602", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-11-30T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 2}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "190550", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "190550", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "190550", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-11-30T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 2}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "022627", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-09-30T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "022627", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-09-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "022627", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-11-30T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 2}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-10-13T00:00:00", "LAST_STATUS_DATE": "2018-10-13T00:00:00", "DRIVERS_LICENSE_NO": "769820", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Closed", "Opened Count": 1, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-10-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "304546", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "", "CASE_OPENED_DT": "2018-10-23T00:00:00", "LAST_STATUS_DATE": "2018-11-23T00:00:00", "DRIVERS_LICENSE_NO": "304546", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Closed", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-11-30T00:00:00", "Status": "Closed", "Opened Count": 0, "Closed Count": 1, "Count as Open": 0, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "STILL OPEN", "CASE_OPENED_DT": "2018-10-23T00:00:00", "LAST_STATUS_DATE": "2018-12-23T00:00:00", "DRIVERS_LICENSE_NO": "308591", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Open", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-10-31T00:00:00", "Status": "Open", "Opened Count": 1, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 0}, {"SCENARIO": "STILL OPEN", "CASE_OPENED_DT": "2018-10-23T00:00:00", "LAST_STATUS_DATE": "2018-12-23T00:00:00", "DRIVERS_LICENSE_NO": "308591", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Open", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-11-30T00:00:00", "Status": "Open", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 1}, {"SCENARIO": "STILL OPEN", "CASE_OPENED_DT": "2018-10-23T00:00:00", "LAST_STATUS_DATE": "2018-12-23T00:00:00", "DRIVERS_LICENSE_NO": "308591", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Open", "Year Date": "2019-01-01T00:00:00", "Year Span": "2018-12-31T00:00:00", "Status": "Open", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 2}, {"SCENARIO": "STILL OPEN", "CASE_OPENED_DT": "2018-10-23T00:00:00", "LAST_STATUS_DATE": "2018-12-23T00:00:00", "DRIVERS_LICENSE_NO": "308591", "STATUS_COUNT": 5, "Age Category": "Over 80", "GENERAL_STATUS": "Open", "Year Date": "2019-01-01T00:00:00", "Year Span": "2019-01-31T00:00:00", "Status": "Open", "Opened Count": 0, "Closed Count": 0, "Count as Open": 1, "Ignore Case": 0, "open_year_span_diff": 3}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># test_nb(&#39;02_core.caseload.ipynb&#39;)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 

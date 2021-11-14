@@ -9,17 +9,21 @@ index = {"from_dob_to_age": "00_core.ipynb",
          "get_fte_days_2018": "01_core.baseline.ipynb",
          "example_exports_func": "01_core.baseline.ipynb",
          "get_statuses": "01_core.baseline.ipynb",
-         "get_processed_case_data": "01_core.baseline.ipynb",
+         "get_processed_case_data": "02_core.caseload.ipynb",
          "get_2018processed_case_data": "01_core.baseline.ipynb",
          "CESSATION_CONTINUATION": "02_core.caseload.ipynb",
          "get_generated_caseload_data_bymonth": "02_core.caseload.ipynb",
-         "data_file_path": "10. Cost Analysis Baseline - 2018 Over 80 Cases by Case Origin.ipynb",
-         "cases2018_df": "10. Cost Analysis Baseline - 2018 Over 80 Cases by Case Origin.ipynb"}
+         "f_caseload_isopen": "02_core.caseload.ipynb",
+         "build_range": "02_core.caseload.ipynb",
+         "filter_data": "02_core.caseload.ipynb",
+         "build_monthly_caseload": "02_core.caseload.ipynb",
+         "aggregate_monthly_data": "02_core.caseload.ipynb",
+         "generate_caseload_data": "02_core.caseload.ipynb",
+         "generate_and_write_caseload_data": "02_core.caseload.ipynb"}
 
 modules = ["core.py",
            "core/baseline.py",
-           "core/caseload.py",
-           "None.py"]
+           "core/caseload.py"]
 
 doc_url = "https://ezrider.github.io/cheeky_monkey/"
 

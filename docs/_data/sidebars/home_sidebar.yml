@@ -26,10 +26,10 @@ entries:
         url: 20. Caseload Modelling Introduction.html
       - output: web,pdf
         title: One
-        url: 20. Caseload Modelling Introduction.html
+        url: 21. Caseload Modelling - Monthly Totals Cases Opened.html
       - output: web,pdf
         title: Two
-        url: 20. Caseload Modelling Introduction.html
+        url: 22. Caseload Modelling - Monthly Totals Cases Closed.html
       title: Caseload Modelling
     output: web
     title: Analysis

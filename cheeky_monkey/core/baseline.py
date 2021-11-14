@@ -158,6 +158,13 @@ def get_processed_case_data(f_path):
 
     cases_df['DOCUMENT_COUNT'] = cases_df['DOCUMENT_COUNT'].fillna(0)
 
+    cases_df['Age Category'] = cases_df.apply( lambda x: 'Over 80 ' if x.age_bucket >= 80 else 'Under 80', axis=1)
+    cases_df['Type Origin'] = cases_df.apply( lambda x: str(x['CASE_CD']) + '_' + str(x['ORIGIN_CD']), axis=1)
+    cases_df['Type & Origin Desc'] = cases_df.apply( lambda x: str(x['CASE_DSC']) + ' & ' + str(x['ORIGIN_DSC']), axis=1)
+    cases_df['Case Length Over 30 Days'] = cases_df.apply( lambda x: True if x['case_length_days'] >= 30 else False, axis=1)
+    cases_df['Case Length Over 60 Days'] = cases_df.apply( lambda x: True if x['case_length_days'] >= 60 else False, axis=1)
+
+
     return cases_df
 
 
@@ -172,7 +179,7 @@ def get_2018processed_case_data(f_path):
 #     file_path = f_path + 'cases_processed.csv'
 #     cases_df = pd.read_csv(file_path,parse_dates=['BIRTHDATE','CASE_OPENED_DT','PREV_CASE_END_DT','LAST_STATUS_DATE'], dtype={'DRIVERS_LICENSE_NO': str})
 #     cases_df = cases_df[(cases_df['Ignore Case'] == 0) ]
-    cases_df = get_processed_case_data
+    cases_df = get_processed_case_data(f_path)
     cases2018_df = cases_df[cases_df.opened_year == 2018].reset_index()
 
 #     cases2018_df = cases2018_df[(cases2018_df['Is Adjudicated'] == 'Adjudicated') & (cases2018_df['age_bucket'] >= 80)].reset_index()
