@@ -38,9 +38,9 @@ def get_generated_caseload_data_bymonth(f_path):
     caseload_data_by_month = pd.read_csv(filepath,parse_dates=['CASE_OPENED_DT'])
     caseload_data_by_month['Opened Month'] = caseload_data_by_month.apply(lambda x: x['CASE_OPENED_DT'].strftime('%b') + '-' + x['CASE_OPENED_DT'].strftime('%Y'), axis=1)
 
-#    caseload_data_by_month['Opened Month'] = caseload_data_by_month.apply(lambda x: x['CASE_OPENED_DT'].strftime('%b') + '-' + x['CASE_OPENED_DT'].strftime('%Y'), axis=1)
-    caseload_data_by_month['Monthly Opened Count'] = caseload_data_by_month.groupby(['CASE_OPENED_DT','Year Span'])['Open Count'].transform( lambda x: sum(x))
-    caseload_data_by_month['Monthly Closed Count'] = caseload_data_by_month.groupby(['CASE_OPENED_DT','Year Span'])['Closed Count'].transform( lambda x: sum(x))
+    #caseload_data_by_month['Opened Month'] = caseload_data_by_month.apply(lambda x: x['CASE_OPENED_DT'].strftime('%b') + '-' + x['CASE_OPENED_DT'].strftime('%Y'), axis=1)
+    #caseload_data_by_month['Monthly Opened Count'] = caseload_data_by_month.groupby(['CASE_OPENED_DT','Year Span'])['Open Count'].transform( lambda x: sum(x))
+    #caseload_data_by_month['Monthly Closed Count'] = caseload_data_by_month.groupby(['CASE_OPENED_DT','Year Span'])['Closed Count'].transform( lambda x: sum(x))
 
     return caseload_data_by_month
 
