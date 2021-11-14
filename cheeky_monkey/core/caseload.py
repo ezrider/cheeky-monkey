@@ -13,8 +13,8 @@ import altair as alt
 import random
 import string
 
-from pandas.util.testing import assert_frame_equal
-
+#from pandas.util.testing import assert_frame_equal
+from pandas._testing import assert_frame_equal
 pd.set_option('display.max_columns', 30) # set so can see all columns of the DataFrame
 
 from vega_datasets import data
@@ -323,7 +323,7 @@ def generate_caseload_data(dataframe):
 
 
 # Cell
-def generate_and_write_caseload_data(dataframe, f_path):
+def generate_and_write_caseload_data(dataframe, f_path, f_name=None):
     """process the case data month-by=month
 
     Parameters:
@@ -334,7 +334,10 @@ def generate_and_write_caseload_data(dataframe, f_path):
     pd.DataFrame
 
     """
-    filename = f_path + 'caseloaddata_by_month.csv'
+    if f_name is None:
+        filename = f_path + 'caseloaddata_by_month.csv'
+    else:
+        filename = f_path + f_name
     caseload_data = generate_caseload_data(dataframe)
     caseload_summary = aggregate_monthly_data(caseload_data)
     caseload_summary.to_csv(filename, index = False)
