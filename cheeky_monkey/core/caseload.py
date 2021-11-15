@@ -33,8 +33,22 @@ CESSATION_CONTINUATION = {
 
 
 # Cell
-def get_generated_caseload_data_bymonth(f_path):
-    filepath = f_path + 'caseloaddata_by_month.csv'
+def get_generated_caseload_data_bymonth(f_path, f_name=None):
+    """
+    given a dataframe, and an enddate for the period, return a dataframe with a case 'status info' record for each month
+
+    Parameters:
+    f_path (str):
+    f_name (str=None): if no name is used in call then f_name defaults to aseloaddata_by_month.csv
+
+    Returns:
+    pd.DataFrame
+
+    """
+    if f_name is None:
+        filepath = f_path + 'caseloaddata_by_month.csv'
+    else:
+        filepath = f_path + f_name
     caseload_data_by_month = pd.read_csv(filepath,parse_dates=['CASE_OPENED_DT'])
     caseload_data_by_month['Opened Month'] = caseload_data_by_month.apply(lambda x: x['CASE_OPENED_DT'].strftime('%b') + '-' + x['CASE_OPENED_DT'].strftime('%Y'), axis=1)
 

@@ -62,8 +62,14 @@ nb_path: "02_core.caseload.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_generated_caseload_data_bymonth" class="doc_header"><code>get_generated_caseload_data_bymonth</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L36" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_generated_caseload_data_bymonth</code>(<strong><code>f_path</code></strong>)</p>
+<h4 id="get_generated_caseload_data_bymonth" class="doc_header"><code>get_generated_caseload_data_bymonth</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L36" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_generated_caseload_data_bymonth</code>(<strong><code>f_path</code></strong>, <strong><code>f_name</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
+<p>given a dataframe, and an enddate for the period, return a dataframe with a case 'status info' record for each month</p>
+<p>Parameters:
+f_path (str):
+f_name (str=None): if no name is used in call then f_name defaults to aseloaddata_by_month.csv</p>
+<p>Returns:
+pd.DataFrame</p>
 
 </div>
 
@@ -99,7 +105,7 @@ nb_path: "02_core.caseload.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="get_processed_case_data" class="doc_header"><code>get_processed_case_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L50" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_processed_case_data</code>(<strong><code>f_path</code></strong>)</p>
+<h4 id="get_processed_case_data" class="doc_header"><code>get_processed_case_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L64" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>get_processed_case_data</code>(<strong><code>f_path</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -208,7 +214,7 @@ nb_path: "02_core.caseload.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="f_caseload_isopen" class="doc_header"><code>f_caseload_isopen</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L63" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>f_caseload_isopen</code>(<strong><code>r</code></strong>)</p>
+<h4 id="f_caseload_isopen" class="doc_header"><code>f_caseload_isopen</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L77" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>f_caseload_isopen</code>(<strong><code>r</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -239,7 +245,7 @@ nb_path: "02_core.caseload.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_range" class="doc_header"><code>build_range</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L192" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_range</code>()</p>
+<h4 id="build_range" class="doc_header"><code>build_range</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L206" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_range</code>()</p>
 </blockquote>
 
 </div>
@@ -270,7 +276,7 @@ nb_path: "02_core.caseload.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="filter_data" class="doc_header"><code>filter_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L199" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>filter_data</code>(<strong><code>d</code></strong>, <strong><code>year</code></strong>, <strong><code>month</code></strong>)</p>
+<h4 id="filter_data" class="doc_header"><code>filter_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L213" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>filter_data</code>(<strong><code>d</code></strong>, <strong><code>year</code></strong>, <strong><code>month</code></strong>)</p>
 </blockquote>
 
 </div>
@@ -307,7 +313,7 @@ nb_path: "02_core.caseload.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_monthly_caseload" class="doc_header"><code>build_monthly_caseload</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L206" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_monthly_caseload</code>(<strong><code>d</code></strong>, <strong><code>end_date</code></strong>, <strong><code>filename</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="build_monthly_caseload" class="doc_header"><code>build_monthly_caseload</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L220" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_monthly_caseload</code>(<strong><code>d</code></strong>, <strong><code>end_date</code></strong>, <strong><code>filename</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>given a dataframe, and an enddate for the period, return a dataframe with a case 'status info' record for each month</p>
 <p>Parameters:
@@ -351,7 +357,7 @@ pd.DataFrame</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="aggregate_monthly_data" class="doc_header"><code>aggregate_monthly_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L251" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>aggregate_monthly_data</code>(<strong><code>data</code></strong>, <strong><code>ag_dict</code></strong>=<em><code>{}</code></em>)</p>
+<h4 id="aggregate_monthly_data" class="doc_header"><code>aggregate_monthly_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L265" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>aggregate_monthly_data</code>(<strong><code>data</code></strong>, <strong><code>ag_dict</code></strong>=<em><code>{}</code></em>)</p>
 </blockquote>
 <p>given a dataframe, and an enddate for the period, return a dataframe with a case 'status info' record for each month</p>
 <p>Parameters:
@@ -394,7 +400,7 @@ pd.DataFrame</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="generate_caseload_data" class="doc_header"><code>generate_caseload_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L286" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_caseload_data</code>(<strong><code>dataframe</code></strong>)</p>
+<h4 id="generate_caseload_data" class="doc_header"><code>generate_caseload_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L300" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_caseload_data</code>(<strong><code>dataframe</code></strong>)</p>
 </blockquote>
 <p>process the case data month-by=month</p>
 <p>Parameters:
@@ -437,7 +443,7 @@ pd.DataFrame</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="generate_and_write_caseload_data" class="doc_header"><code>generate_and_write_caseload_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L326" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_and_write_caseload_data</code>(<strong><code>dataframe</code></strong>, <strong><code>f_path</code></strong>, <strong><code>f_name</code></strong>=<em><code>None</code></em>)</p>
+<h4 id="generate_and_write_caseload_data" class="doc_header"><code>generate_and_write_caseload_data</code><a href="https://github.com/ezrider/cheeky_monkey/tree/{branch}/cheeky_monkey/core/caseload.py#L340" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generate_and_write_caseload_data</code>(<strong><code>dataframe</code></strong>, <strong><code>f_path</code></strong>, <strong><code>f_name</code></strong>=<em><code>None</code></em>)</p>
 </blockquote>
 <p>process the case data month-by=month</p>
 <p>Parameters:
@@ -1483,12 +1489,12 @@ def build_monthly_caseload(d, end_date, filename):
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-e7cf42a514bd47ab8fe462c10339f138"></div>
+<div id="altair-viz-619db0689c374be0b47afcf8c3eba696"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-e7cf42a514bd47ab8fe462c10339f138") {
-      outputDiv = document.getElementById("altair-viz-e7cf42a514bd47ab8fe462c10339f138");
+    if (outputDiv.id !== "altair-viz-619db0689c374be0b47afcf8c3eba696") {
+      outputDiv = document.getElementById("altair-viz-619db0689c374be0b47afcf8c3eba696");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -2427,12 +2433,12 @@ def build_monthly_caseload(d, end_date, filename):
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
-<div id="altair-viz-9642745b5cee4b42b6614c51e0314d7e"></div>
+<div id="altair-viz-c98c2dc9fb1e457b97649436b23a7705"></div>
 <script type="text/javascript">
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-9642745b5cee4b42b6614c51e0314d7e") {
-      outputDiv = document.getElementById("altair-viz-9642745b5cee4b42b6614c51e0314d7e");
+    if (outputDiv.id !== "altair-viz-c98c2dc9fb1e457b97649436b23a7705") {
+      outputDiv = document.getElementById("altair-viz-c98c2dc9fb1e457b97649436b23a7705");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
