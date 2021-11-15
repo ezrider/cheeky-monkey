@@ -236,7 +236,7 @@ def build_monthly_caseload(d, end_date, filename=None):
     if filename:
         summaryfilename = filename.replace('.csv', '_Adjudicated_Summary.csv' ) #Jan_2018_toSept2021.csv
 
-        print(filename)
+        #print(filename)
         #data.to_csv(filename, index = False)
 
     data = data[data['Ignore Case'] == 0].reset_index(drop=True)
@@ -268,7 +268,7 @@ def aggregate_monthly_data(data, ag_dict={}):
         'Count as Open': ('Count as Open','sum'),
         'Closed': ('Closed Count','sum')
         # 'Case Count': ('DRIVERS_LICENSE_NO','count'),
-        #     'Status Count': ('STATUS_COUNT', 'sum')
+        ,     'Status Count': ('STATUS_COUNT', 'sum')
         }
 
     monthly_counts = data.groupby([pd.Grouper(freq='M', key='CASE_OPENED_DT') ,
